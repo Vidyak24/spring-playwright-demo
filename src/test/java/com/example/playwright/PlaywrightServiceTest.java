@@ -14,6 +14,7 @@ class PlaywrightServiceTest {
     @BeforeAll
     static void setUp() {
         boolean headless = Boolean.parseBoolean(System.getenv().getOrDefault("HEADLESS", "true"));
+        System.out.println("Starting Playwright browser in headless mode: " + headless);
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(headless));
     }
